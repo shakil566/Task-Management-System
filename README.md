@@ -8,11 +8,11 @@ This task from Business Automation Ltd.
 - For good user interface, I installed a free theme (AdminLte)
 - In this project two user group Manager and Teammates. But User group management is here, Manager can ceate multiple user group.
 - Manager can signup from register module and after manager login, Manager can create Teammates with their info.
-- Manager can create Project, Task (Depend on projecs), then Assign tasks to Teammates.
-- Manager can see all assigned task with details and filter with Teammate name, project name, Task name and Status.
+- Manager can create Project, Task (Depend on projects), then Assign tasks to Teammates.
+- Manager can see all assigned task with details and filter with Teammate name, Project name, Task name and Status.
 
 - Teammates can login with their email and password.
-- Teammates can see only his/her assigned task with details and filter with project name, Task name and Status in My Tasks module.
+- Teammates can see only his/her assigned task with details and filter with Project name, Task name and Status in My Tasks module.
 - Teammates can change his/her task status with two button(Working and done)
 
 ## Installation
