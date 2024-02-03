@@ -34,6 +34,63 @@
                         <div class="card-header">
                             <h3 class="card-title">@lang('english.TASK_DETAILS')</h3>
                         </div>
+
+
+                        <!-- Begin Filter-->
+                        {!! Form::open(array('group' => 'form', 'url' => 'admin/taskInfo/filter','class' => 'form-horizontal')) !!}
+
+                        @csrf
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3" for="search">@lang('english.SEARCH')</label>
+                                        <div class="col-md-8">
+                                            {!! Form::text('search_text', Request::get('search_text'), ['class' => 'form-control tooltips', 'title' => 'Project/Task Name', 'placeholder' => 'Project/Task Name', 'autocomplete' => 'off']) !!}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4" for="projectId">@lang('english.PROJECT')</label>
+                                        <div class="col-md-8">
+                                            {!! Form::select('project_id', $projectFilterList, Request::get('project_id'), ['class' => 'form-control select2', 'id' => 'projectId']) !!}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3" for="taskId">@lang('english.TASK') </label>
+                                        <div class="col-md-9">
+                                            {!! Form::select('task_id', $taskFilterList, Request::get('task_id'), ['class' => 'form-control select2', 'id' => 'taskId']) !!}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3" for="status">@lang('english.STATUS') </label>
+                                        <div class="col-md-8">
+                                            {!! Form::select('status', $statusList, Request::get('status'), ['class' => 'form-control select2', 'id' => 'status']) !!}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center col-md-4">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-md btn-info filter-submit margin-top-20">
+                                            <i class="fa fa-search"></i> @lang('english.FILTER')
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {!! Form::close() !!}
+                        <!-- End Filter -->
+
                         <!-- /.card-header -->
                         <div class="card-body assigned-task">
                             <table id="dataTable" class="table table-bordered">
@@ -64,7 +121,7 @@
                                         <td rowspan="{{$rowSpan}}">{{ ++$sl }}</td>
                                         <td rowspan="{{$rowSpan}}">{{ isset( $projectList[$tId]) ? $projectList[$tId] : '' }}</td>
 
-                                            @foreach ($assignTaskArr as $value)
+                                        @foreach ($assignTaskArr as $value)
                                     <tr class="text-center">
                                         <td>{{ $value->task_name ?? '' }}</td>
                                         <td>{{ $value->description ?? '' }}

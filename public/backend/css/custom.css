@@ -107,6 +107,12 @@ span.brand-text.font-weight-light {
     font-size: 15px;
     font-weight: 800 !important;
 }
+.margin-top-20 {
+    margin-top: 20px;
+}
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
 
 /* #region modal*/
 .modal-header {
